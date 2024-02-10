@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:twitch/resources/auth_methods.dart';
+import 'package:twitch/screens/home_screen.dart';
 import 'package:twitch/widgets/custom_button.dart';
 import 'package:twitch/widgets/custom_textfield.dart';
 
@@ -13,6 +15,21 @@ class LoginScreeen extends StatefulWidget {
 class _LoginScreeenState extends State<LoginScreeen> {
     final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+   final AuthMethods _authMethods = AuthMethods();
+
+   loginUser() async {
+  
+    bool res = await _authMethods.loginUser(
+      context,
+      _emailController.text,
+      _passwordController.text,
+    );
+  
+    if (res) {
+      Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -60,7 +77,7 @@ class _LoginScreeenState extends State<LoginScreeen> {
                       const SizedBox(
                         height: 20,
                       ),
-                      CustomButton(onTap: (){}, text: 'Login'),
+                      CustomButton(onTap: loginUser, text: 'Login'),
                     ],
                   ),
                 ),
