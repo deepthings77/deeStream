@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1011746930673",
+    "project_id": "omegleclone-47602",
+    "storage_bucket": "omegleclone-47602.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011746930673:android:a11c626c6d579c68c08e50",
+        "android_client_info": {
+          "package_name": "com.example.twitch"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9d1Jjel4Pts-B8yN-22rFjb0fWxVEY84"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
