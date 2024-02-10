@@ -3,6 +3,7 @@ import 'package:twitch/resources/auth_methods.dart';
 import 'package:twitch/screens/home_screen.dart';
 import 'package:twitch/widgets/custom_button.dart';
 import 'package:twitch/widgets/custom_textfield.dart';
+import 'package:twitch/widgets/loading_indicator.dart';
 
 class LoginScreeen extends StatefulWidget {
   static const routeName = '/loginRoute';
@@ -16,18 +17,29 @@ class _LoginScreeenState extends State<LoginScreeen> {
     final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
    final AuthMethods _authMethods = AuthMethods();
+   bool _isLoading = false;
 
    loginUser() async {
-  
+       setState(() {
+      _isLoading = true;
+    });
     bool res = await _authMethods.loginUser(
       context,
       _emailController.text,
       _passwordController.text,
     );
-  
+    setState(() {
+      _isLoading = false;
+    });
     if (res) {
       Navigator.pushReplacementNamed(context, HomeScreen.routeName);
     }
+  }
+    @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -39,7 +51,9 @@ class _LoginScreeenState extends State<LoginScreeen> {
           'Sign Up',
         ),
       ),
-      body:  SingleChildScrollView(
+      body: _isLoading
+          ? const LoadingIndicator()
+          : SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 18.0),
                   child: Column(

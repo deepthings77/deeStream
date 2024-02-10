@@ -3,6 +3,7 @@ import 'package:twitch/resources/auth_methods.dart';
 import 'package:twitch/screens/home_screen.dart';
 import 'package:twitch/widgets/custom_button.dart';
 import 'package:twitch/widgets/custom_textfield.dart';
+import 'package:twitch/widgets/loading_indicator.dart';
 
 class SignUpScreen extends StatefulWidget {
   static const routeName = '/signup';
@@ -17,22 +18,33 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final AuthMethods _authMethods = AuthMethods();
+  bool _isLoading = false;
 
     void signUpUser() async {
-  
+   setState(() {
+      _isLoading = true;
+    });
     bool res = await _authMethods.signUpUser(
       context,
       _emailController.text,
       _usernameController.text,
       _passwordController.text,
     );
-
+ setState(() {
+      _isLoading = false;
+    });
     if (res) {
       Navigator.pushReplacementNamed(context, HomeScreen.routeName);
     }
   }
 
-
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    _usernameController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -42,7 +54,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
           'Sign Up',
         ),
       ),
-      body:  SingleChildScrollView(
+      body: _isLoading
+          ? const LoadingIndicator()
+          : SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 18.0),
                   child: Column(
