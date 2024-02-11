@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:twitch/providers/user_provider.dart';
@@ -15,9 +16,21 @@ import 'package:twitch/models/user.dart' as model;
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
+  if(kIsWeb) {
+    await Firebase.initializeApp(
+      options: const FirebaseOptions(    apiKey: 'AIzaSyAdLofNW09NPPnvJBYpqwIFIuMOYI_ZSoM',
+    appId: '1:1011746930673:web:497df045a59f3de4c08e50',
+    messagingSenderId: '1011746930673',
+    projectId: 'omegleclone-47602',
+    authDomain: 'omegleclone-47602.firebaseapp.com',
+    storageBucket: 'omegleclone-47602.appspot.com',)
+    );
+  }else{
+ await Firebase.initializeApp(
   options: DefaultFirebaseOptions.currentPlatform,
 );
+  }
+ 
 runApp(MultiProvider(providers: [
     ChangeNotifierProvider(
       create: (_) => UserProvider(),

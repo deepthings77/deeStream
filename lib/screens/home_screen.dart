@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const FeedScreen(),
     const GoLiveScreen(),
     const Center(
-      child: Text("data"),
+      child: Text( "More Features \nCOMING SOON....."),
     )
   ];
   onPageChange(int page) {
