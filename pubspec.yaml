@@ -46,6 +46,7 @@ dependencies:
   permission_handler: ^11.2.1
   uuid: ^4.3.3
   timeago: ^3.6.1
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:

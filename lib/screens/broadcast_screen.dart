@@ -184,7 +184,37 @@ class _BroadcastScreenState extends State<BroadcastScreen> {
   }
    _renderVideo(user, isScreenSharing) {
     return AspectRatio(
-      aspectRatio: 7 / 9,
+      aspectRatio: 9/ 9,
+      
+      child: "${user.uid}${user.username}" == widget.channelId
+          ? isScreenSharing
+              ? kIsWeb
+                  ? const RtcLocalView.SurfaceView.screenShare()
+                  : const RtcLocalView.TextureView.screenShare()
+              : const RtcLocalView.SurfaceView(
+                  zOrderMediaOverlay: true,
+                  zOrderOnTop: true,
+                )
+          : isScreenSharing
+              ? kIsWeb
+                  ? const RtcLocalView.SurfaceView.screenShare()  
+                  : const RtcLocalView.TextureView.screenShare()
+              : remoteUid.isNotEmpty
+                  ? kIsWeb
+                      ? RtcRemoteView.SurfaceView(
+                          uid: remoteUid[0],
+                          channelId: widget.channelId,
+                        )
+                      : RtcRemoteView.TextureView(
+                          uid: remoteUid[0],
+                          channelId: widget.channelId,
+                        )
+                  : Container(),
+    );
+  }
+   _renderdeskVideo(user, isScreenSharing) {
+    return AspectRatio(
+      aspectRatio: 17/ 9,
       
       child: "${user.uid}${user.username}" == widget.channelId
           ? isScreenSharing
@@ -241,7 +271,7 @@ class _BroadcastScreenState extends State<BroadcastScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      _renderVideo(user, isScreenSharing),
+                      _renderdeskVideo(user, isScreenSharing),
                       if ("${user.uid}${user.username}" == widget.channelId)
                         Column(
                           mainAxisSize: MainAxisSize.min,
