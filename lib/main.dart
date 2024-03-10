@@ -18,12 +18,12 @@ void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   if(kIsWeb) {
     await Firebase.initializeApp(
-      options: const FirebaseOptions(    apiKey: 'AIzaSyAdLofNW09NPPnvJBYpqwIFIuMOYI_ZSoM',
-    appId: '1:1011746930673:web:497df045a59f3de4c08e50',
-    messagingSenderId: '1011746930673',
-    projectId: 'omegleclone-47602',
-    authDomain: 'omegleclone-47602.firebaseapp.com',
-    storageBucket: 'omegleclone-47602.appspot.com',)
+      options: const FirebaseOptions(    apiKey: '',
+    appId: '',
+    messagingSenderId: '',
+    projectId: '',
+    authDomain: '',
+    storageBucket: '',)
     );
   }else{
  await Firebase.initializeApp(
