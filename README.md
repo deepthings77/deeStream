@@ -4,8 +4,9 @@ Destream is a versatile streaming and broadcasting application built with Flutte
 
 ##Youtube Video
 
+[![Watch the video](https://i.sstatic.net/Vp2cE.png)](https://youtu.be/dLvAYCn-Jeo)
 
-[![Watch the video](https://img.youtube.com/vi/dLvAYCn-Jeo/maxresdefault.jpg)](https://youtu.be/dLvAYCn-Jeo)
+
 
 
 
