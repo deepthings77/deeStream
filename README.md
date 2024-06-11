@@ -2,6 +2,10 @@
 
 Destream is a versatile streaming and broadcasting application built with Flutter, utilizing the Agora RTC Engine for real-time communications and a Go server for backend services. This application supports both mobile and web platforms, providing features like user authentication, live streaming, real-time chat between broadcasters and audiences, and a clean interface to easily navigate between multiple live streams.
 
+##Youtube Video
+[![Watch the video](https://i.sstatic.net/Vp2cE.png)](https://youtu.be/dLvAYCn-Jeo)
+
+
 ## Features
 
 - **User Authentication:** Secure user login and registration.
