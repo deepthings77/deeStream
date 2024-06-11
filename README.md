@@ -1,16 +1,27 @@
-# twitch
+# Destream
 
-A new Flutter project.
+Destream is a versatile streaming and broadcasting application built with Flutter, utilizing the Agora RTC Engine for real-time communications and a Go server for backend services. This application supports both mobile and web platforms, providing features like user authentication, live streaming, real-time chat between broadcasters and audiences, and a clean interface to easily navigate between multiple live streams.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- **User Authentication:** Secure user login and registration.
+- **Live Streaming:** High-quality video streaming using Agora RTC.
+- **Real-Time Chat:** Interactive chat between the streamer and audience.
+- **Multi-Stream Interface:** Easily switch between multiple live streams.
+  
+### Installation
+You can download app from this Drive Link : 
+Destream App: [App](https://drive.google.com/drive/folders/1ZHqDPaOiFOoM_FXPUilliJua6c3yqoii)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+##Contributing
+Contributions are welcome! Please open an issue or submit a pull request for any changes.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Fork the repository.
+2. Create a new branch (git checkout -b feature-branch).
+3. Commit your changes (git commit -am 'Add new feature').
+4. Push to the branch (git push origin feature-branch).
+5. Create a new Pull Request.
+
+##Contact
+For any inquiries or support, please contact [projectdeep7@gmail.com].
