@@ -52,7 +52,7 @@ class _BroadcastScreenState extends State<BroadcastScreen> {
     _joinChannel();
   }
 
-    String baseUrl = "https://deestreamserver.onrender.com";
+    String baseUrl = "https://dees.onrender.com";
 
   String? token;
 
